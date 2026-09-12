@@ -41,4 +41,4 @@ styled by the `gr_custom_*` / `gr_grid_*` rules in `site.css`. The poems live on
 Videos are H.264 MP4, 720p, autoplaying muted with `preload="metadata"`. `optimus-hand.mp4` is the
 720p rendition of @niccruzpatane's X post, credited in its caption. The long Foundation videos are
 YouTube embeds on the Press page, not local files. Keep any new clip under ~50 MB (GitHub's hard
-limit is 100 MB per file). Images: JPEG for photos and screenshots, PNG only for the mark.
+limit is 100 MB per file). Images: JPEG for photos and screenshots, PNG only for the favicon (`ae-64.png`, `ae-256.png`, the old site's "ae" mark).

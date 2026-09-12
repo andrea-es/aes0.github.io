@@ -1,0 +1,165 @@
+/* andrea-esposito.com — one stylesheet, no build step.
+   Lora for headings, Gentium Basic for text (both self-hosted). White page, always. */
+
+@font-face { font-family: "Gentium Basic"; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/gentium-basic-regular.woff2") format("woff2"); }
+@font-face { font-family: "Gentium Basic"; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/fonts/gentium-basic-bold.woff2") format("woff2"); }
+@font-face { font-family: "Gentium Basic"; font-style: italic; font-weight: 400; font-display: swap; src: url("/assets/fonts/gentium-basic-italic.woff2") format("woff2"); }
+@font-face { font-family: "Gentium Basic"; font-style: italic; font-weight: 700; font-display: swap; src: url("/assets/fonts/gentium-basic-bold-italic.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/lora-var-latin.woff2") format("woff2"); }
+@font-face { font-family: "Lora"; font-style: italic; font-weight: 400 700; font-display: swap; src: url("/assets/fonts/lora-var-latin-italic.woff2") format("woff2"); }
+
+:root {
+  --bg: #fff;
+  --text: #212121;
+  --heading: #37474f;
+  --link: #37474f;
+  --link-hover: #000;
+  --muted: #757575;
+  --line: #e0e0e0;
+  --head: "Lora", georgia, serif;
+  --body: "Gentium Basic", "Gentium Book Basic", georgia, serif;
+  --measure: 50em;
+  color-scheme: light;
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+img, video, iframe { max-width: 100%; }
+img, video { height: auto; }
+figure { margin: 0; }
+
+h1, h2, h3 { font-family: var(--head); font-weight: 400; line-height: 1.3; }
+h4 { line-height: 1.4; }
+h2 { font-size: 27px; color: var(--heading); margin: 2.2em 0 0.5em; }
+h3 { font-size: 22px; color: var(--text); margin: 1.9em 0 0.4em; }
+h3 .when { font-family: var(--body); font-size: 16px; color: var(--muted); margin-left: 0.3em; }
+p, ul, ol { margin: 0 0 1em; }
+ul { padding-left: 1.4em; }
+li { margin-bottom: 0.3em; }
+
+a { color: var(--link); text-decoration: underline; text-underline-offset: 0.12em; }
+a:hover { color: var(--link-hover); }
+strong, b { font-weight: 700; }
+.muted, figcaption { color: var(--muted); }
+figcaption { font-size: 15px; }
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 1.5rem; width: 100%; }
+
+/* ---------- header: name top-left, sections top-right ---------- */
+#head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding: 1.5rem 1.75rem 2.5rem;
+  font-family: var(--head);
+}
+#head .name { font-size: 23px; color: var(--text); text-decoration: none; }
+#head nav { display: flex; align-items: baseline; gap: 1.6rem; font-size: 18px; }
+#head nav a { text-decoration: none; color: var(--muted); }
+#head nav a:hover, #head nav a[aria-current] { color: var(--text); }
+
+/* Work: a link, plus a caret that opens the sub-pages */
+.menu { position: relative; display: inline-flex; align-items: baseline; gap: 0.15rem; }
+.menu .caret {
+  border: 0; background: none; padding: 0 0.2rem; margin: 0;
+  color: var(--muted); font: inherit; font-size: 0.8em; cursor: pointer; line-height: 1;
+}
+.menu .caret:hover, .menu:hover .caret, .menu.open .caret { color: var(--text); }
+.menu .caret svg { display: block; width: 0.75em; height: 0.75em; transition: transform 0.15s; }
+.menu.open .caret svg { transform: rotate(180deg); }
+.menu .sub {
+  display: none; position: absolute; top: 100%; left: 0; z-index: 10;
+  flex-direction: column; gap: 0.2rem;
+  padding: 0.35rem 0 0.5rem; background: var(--bg);
+  font-size: 15px; white-space: nowrap;
+}
+.menu:last-child .sub { left: auto; right: 0; }
+.menu:hover .sub, .menu:focus-within .sub, .menu.open .sub { display: flex; }
+
+@media (max-width: 600px) {
+  #head { padding: 1.25rem 1rem 2rem; }
+  #head .name { font-size: 18px; white-space: nowrap; }
+  #head nav { font-size: 15px; gap: 0.9rem; }
+  .menu .sub { font-size: 14px; }
+}
+
+/* ---------- content ---------- */
+#content { flex: 1; }
+#content > h2:first-child { margin-top: 0; }
+
+/* centred media: videos, embeds, stills */
+.embed { display: flex; flex-direction: column; align-items: center; margin: 1.75em 0; }
+.embed video, .embed img, .embed iframe { display: block; }
+.embed figcaption { margin-top: 0.5em; text-align: center; max-width: 34em; }
+.embed.portrait video { width: 504px; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.embed.wide video, .embed iframe { width: 560px; max-width: 100%; aspect-ratio: 16 / 9; height: auto; border: 0; }
+.embed img { width: 100%; max-width: 640px; }
+.embed.tall img { max-width: 440px; }
+.embed .twitter-tweet { margin: 0; }
+.twitter-tweet-rendered { zoom: 0.8; }   /* X sets ~20px inside its iframe; bring it down to the text size */
+
+/* ---------- long pages: jump links, dated articles ---------- */
+.jump { list-style: none; padding: 0; margin: -0.5em 0 0; font-size: 15px; }
+.jump li { margin: 0 0 0.35em; }
+.jump a { text-decoration: none; color: var(--muted); }
+.jump a:hover { color: var(--text); text-decoration: underline; }
+.meta { display: block; font-size: 15px; color: var(--muted); margin: -0.4em 0 1.2em; }
+.meta a { color: inherit; }
+article { margin-top: 3em; padding-top: 2.5em; border-top: 1px solid var(--line); }
+article h3 { margin-top: 0; }
+h4 { font-family: var(--body); font-size: 16px; font-weight: 700; margin: 1.6em 0 0.3em; }
+h4 + p, h4 + ul { margin-top: 0; }
+
+/* ---------- library ---------- */
+.epigraph { margin-bottom: 0.4em; }
+.epigraph + .meta { margin: 0 0 1.5em; }
+
+/* Goodreads "currently reading" widget (custom_widget). Its script replaces the div's contents
+   with these classes; the header and the Goodreads logo are hidden. */
+.gr_custom_header_1719105719, .gr_custom_container_1719105719 center, .gr_custom_container_1719105719 br { display: none; }
+.gr_custom_container_1719105719 { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25em; margin: 1em 0 0; }
+.gr_custom_each_container_1719105719 { display: grid; grid-template-columns: 98px minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: 1em; align-items: start; }
+.gr_custom_book_container_1719105719 { grid-row: 1 / 3; }
+.gr_custom_book_container_1719105719 img { display: block; width: 98px; }
+.gr_custom_title_1719105719 a { text-decoration: none; }
+.gr_custom_title_1719105719 a:hover { text-decoration: underline; }
+.gr_custom_author_1719105719 { font-size: 15px; color: var(--muted); }
+.gr_custom_author_1719105719 a { color: inherit; text-decoration: none; }
+
+/* Goodreads "read" shelf (grid_widget): just covers */
+.gr_grid_container { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 10px; margin: 1em 0 0; }
+.gr_grid_book_container a { display: block; }
+.gr_grid_book_container img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+#gr_custom_widget_1719105719 noscript, #gr_grid_widget_1719103478 noscript { display: none; }
+
+/* quotes */
+.quote { margin-top: 2.5em; }
+.quote h4 { font-family: var(--head); font-weight: 400; font-size: 20px; margin: 0 0 0.1em; }
+.quote .meta { margin: 0 0 0.8em; }
+.quote p { margin-bottom: 0.9em; }
+.quote > :last-child { margin-bottom: 0; }
+
+/* ---------- about: text, then the photo ---------- */
+.about h2 { margin-top: 0; }
+.about img { width: 100%; display: block; margin-top: 2em; }
+
+/* ---------- footer: just X ---------- */
+#foot { display: flex; justify-content: center; padding: 3rem 1.5rem 2.5rem; }
+#foot a { color: var(--muted); display: block; line-height: 0; }
+#foot a:hover { color: var(--text); }
+#foot svg { width: 20px; height: 20px; display: block; }
+
+/* ---------- print ---------- */
+@media print {
+  #head nav, #foot, video, iframe { display: none; }
+  body { font-size: 11pt; }
+  a { color: #000; text-decoration: none; }
+}

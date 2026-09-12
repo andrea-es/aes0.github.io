@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hand analyses — Andrea Esposito</title>
+<meta name="description" content="Andrea Esposito's breakdowns of other companies' robotic hands: SynapX, Figure and 1X.">
+<link rel="canonical" href="https://andrea-esposito.com/hand-analyses/">
+<link rel="icon" href="/assets/img/mark-64.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/mark-256.png">
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hand analyses — Andrea Esposito">
+<meta property="og:description" content="My breakdowns of the SynapX, Figure and 1X hands.">
+<meta property="og:image" content="https://andrea-esposito.com/assets/img/analyses/1x-dof.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@aesposito0">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R27CMF5WQ5"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-R27CMF5WQ5');</script>
+</head>
+<body>
+
+<header id="head">
+  <a class="name" href="/">Andrea Esposito</a>
+  <nav>
+    <a href="/">About</a>
+    <div class="menu">
+      <a href="/work/" aria-current="true">Work</a>
+      <button class="caret" type="button" aria-label="Show Work pages" aria-expanded="false"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></button>
+      <div class="sub">
+        <a href="/work/">Work</a>
+        <a href="/press/">Press and media</a>
+        <a href="/hand-analyses/" aria-current="page">Hand analyses</a>
+      </div>
+    </div>
+    <div class="menu">
+      <a href="/bookshelf/">Bookshelf</a>
+      <button class="caret" type="button" aria-label="Show Bookshelf pages" aria-expanded="false"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5"/></svg></button>
+      <div class="sub">
+        <a href="/bookshelf/">Bookshelf</a>
+        <a href="/favorite-poetry/">Favorite poetry</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="content" class="wrap">
+
+  <h2 id="hand-analyses">Hand analyses</h2>
+  <ul class="jump">
+    <li><a href="#1x">1X's tendon based hand</a></li>
+    <li><a href="#figure">Figure's tendon based hand</a></li>
+    <li><a href="#synapx">Quick analysis of SynapX hand (Tesla copycat)</a></li>
+  </ul>
+
+  <article id="1x">
+    <h3>1X's tendon based hand</h3>
+    <span class="meta"><a href="https://x.com/aesposito0/status/2075363740267282531">Originally posted on X</a> on Jul 9, 2026.</span>
+
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Introducing NEO's 25 Degrees of Freedom, tendon-driven hands — nearing or surpassing human-level dexterity, strength, speed, and reliability.<br><br>For seventy years, robotics worked around the hand problem. The humanoid bet is the reverse: it lives or dies at the fingertips.</p>&mdash; Bernt Bornich (@BerntBornich) <a href="https://twitter.com/BerntBornich/status/2075253825494237660">July 9, 2026</a></blockquote>
+    </div>
+
+    <h4>Degrees of actuation</h4>
+    <p>1X claims 25 DOF. I count 20.</p>
+
+    <figure class="embed"><img src="/assets/img/analyses/1x-dof.jpg" alt="The NEO hand with the degrees of freedom I count marked up" width="1376" height="1400" loading="lazy"></figure>
+
+    <p>PIP and DIP flexion appear coupled in the videos, which is why the hand defaults to a pinch grip (👌🏻) rather than a flat grip (🤏🏻). A flat grip is inherently more stable, especially on small objects: it maximizes contact area and uses the full pulp of the fingertip.</p>
+
+    <figure class="embed"><img src="/assets/img/analyses/1x-grip.jpg" alt="NEO's fingers closing into a pinch grip, PIP and DIP moving together" width="1396" height="1041" loading="lazy"></figure>
+
+    <p>The thumb architecture is an interesting choice. 1X included thumb pronation/supination (axial rotation) but skipped abduction/adduction, which is the more common choice in humanoid hands. I loved how the Wuji hand solved this: it keeps ab/ad, then gets some axial rotation "for free" by angling the MCP/IP flexion axes relative to the CMC flexion axis.</p>
+
+    <figure class="embed"><img src="/assets/img/analyses/1x-thumb.jpg" alt="NEO's thumb next to the Wuji hand's thumb, showing the two ways of getting axial rotation" width="1400" height="774" loading="lazy"></figure>
+
+    <h4>Tendon actuation</h4>
+    <p>1X uses rotary actuators, each driving both the flexion and extension tendons of a joint. Same approach as Kyber Labs. This gives them excellent control over joint actuation, but it introduces a challenge. As tendons stretch or slip, slack enters the system and creates joint backlash. They fixed this by making the tendons easily accessible so they can be re-tensioned, which will require a technician.</p>
+
+    <figure class="embed"><img src="/assets/img/analyses/1x-tendons.jpg" alt="NEO's forearm opened up: rotary actuators, and the tendons and Bowden tubes running from them" width="1400" height="923" loading="lazy"></figure>
+
+    <p>You can also see how much engineering went into the tendons themselves. The size gap between the tendon and its Bowden tube suggests at least 4 layers:</p>
+    <ul>
+      <li>stiff load-bearing rope</li>
+      <li>low-friction sacrificial layer</li>
+      <li>the Bowden tube's metal spring coil</li>
+      <li>an outer sheath protecting it</li>
+    </ul>
+
+    <h4>Wrist actuation</h4>
+    <p>I really like how they did this. The differential is compact, efficient, and stays out of the way of the tendons. Two rotary actuators drive a capstan mechanism (mirrored on the other side). Turn the actuator clockwise → the hand tilts left and flexes toward the camera (red arrows). Counterclockwise does the reverse. How much it tilts vs. flexes depends on what the second actuator is doing and how the other two ropes wrap the joint.</p>
+
+    <figure class="embed tall"><img src="/assets/img/analyses/1x-wrist.jpg" alt="NEO's wrist differential: two rotary actuators driving a capstan, with the rope paths drawn in red" width="790" height="1400" loading="lazy"></figure>
+  </article>
+
+  <article id="figure">
+    <h3>Figure's tendon based hand</h3>
+    <span class="meta"><a href="https://x.com/aesposito0/status/2088008983525364160">Originally posted on X</a> on Aug 13, 2026.</span>
+
+    <div class="embed">
+      <blockquote class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">The biggest engineering mistake I made at Figure was building a tendon-based hand<br><br>Our first hand design in 2022 was a tendon hand for our F.01 robot. At a high level, the tendon approach sounds appealing, which is why I chose it: you get more space for packaging actuators since…</p>&mdash; Brett Adcock (@adcock_brett) <a href="https://twitter.com/adcock_brett/status/2087927278458327179">August 13, 2026</a></blockquote>
+    </div>
+
+    <h4>Dexterity is trash</h4>
+    <ul>
+      <li>2 DOFs per finger</li>
+      <li>No abduction/adduction except for the thumb</li>
+    </ul>
+    <p>11 DOFs total. Really bad for tendon-driven. Everyone else packs in twice as many.</p>
+
+    <figure class="embed"><img src="/assets/img/analyses/figure-dof.jpg" alt="Figure's F.01 hand with its degrees of freedom marked up" width="1400" height="1100" loading="lazy"></figure>
+
+    <p>Wrist yaw is actuated with the same motors as fingers, way too weak.</p>
+    <p>I think there's no wrist pitch, but I am not sure.</p>
+    <p>Makes me think that there's no pitch:</p>
+    <ul>
+      <li>I count 12 actuators (3 levels, 4 actuators each)</li>
+      <li>I see no joint</li>
+    </ul>
+    <p>Maybe there's pitch:</p>
+    <ul>
+      <li>It would be too stupid to eliminate that DOF</li>
+    </ul>
+
+    <h4>Actuation</h4>
+    <p>Bidirectional actuators pull different tendons depending on spin direction. Same approach as Kyber Labs and 1X.</p>
+    <p>Tendons wrap a reel, and route through pulleys. The reel takes a lot of volume, so the actuators are small and weak.</p>
+    <p>At the wrist, tendons get into the wrist structure and exit in bowden tubes that carry them to the joints.</p>
+
+    <figure class="embed"><img src="/assets/img/analyses/figure-bowden.jpg" alt="Close-up of the F.01 wrist, where the tendons leave the structure in Bowden tubes" width="970" height="724" loading="lazy"></figure>
+
+    <h4>The failure mode</h4>
+    <p>Bowden tubes induce friction, and with it two problems:</p>
+    <ul>
+      <li>Poor controllability (worse with weak actuators)</li>
+      <li>Poor reliability: tendons fray and break</li>
+    </ul>
+    <p>Figure moved away from tendons when they should've moved away from bowden tubes, or optimized tube friction like 1X.</p>
+
+    <h4>Summary</h4>
+    <ul>
+      <li>Bad hand, calling it a work of art is... lol.</li>
+      <li>There were good ideas worth iterating on: pulley routing, bidirectional actuation</li>
+      <li>Nowhere near exhausting tendon hands' potential.</li>
+    </ul>
+    <p>Brett Adcock lacks first-principle hardware intuition. Figure's AI stack is great, but the hardware over-indexes on industrial design, under-indexes on performance. On hands, they're being left behind.</p>
+  </article>
+
+  <article id="synapx">
+    <h3>Quick analysis of SynapX hand (Tesla copycat)</h3>
+    <span class="meta"><a href="https://x.com/aesposito0/status/2089012894445060543">Originally posted on X</a> on Aug 16, 2026.</span>
+
+    <figure class="embed tall"><img src="/assets/img/analyses/synapx-octoh.jpg" alt="The SynapX hand and forearm, with the tendon routing through the wrist visible" width="1049" height="1400" loading="lazy"></figure>
+
+    <p>This hand is remarkably similar to the old Optimus hand I worked on.</p>
+    <p>A breakdown:</p>
+
+    <h4>DOFs</h4>
+    <p>I count 20 + 2 in the wrist.</p>
+    <ul>
+      <li>Coupled PIP and DIP</li>
+      <li>2 tendons for MCP flexion, used differentially to provide ab/ad</li>
+    </ul>
+
+    <h4>The wrist is differential</h4>
+    <ul>
+      <li>2 linear actuators in the wrist</li>
+      <li>Wrist pitch if used together</li>
+      <li>Wrist yaw if used differentially</li>
+    </ul>
+
+    <h4>Finger extension</h4>
+    <p>I count 20 tendons through the wrist, meaning 5 are dedicated to active extension (also visible on the thumb).</p>
+
+    <h4>Bowden tubes</h4>
+    <p>Tendons are routed through wrist and palm with Bowden tubes (all the way to the knuckle), which I expect to create friction and reliability issues.</p>
+
+    <h4>Differences from the Tesla hand</h4>
+    <ul>
+      <li>No palm DOF (5th metacarpal)</li>
+      <li>Tesla lost the Bowden tubes after the We, Robot event (10.10.2024)</li>
+    </ul>
+
+    <p>The Tesla design I am referencing was released with patent WO2024073138A1. I am not disclosing anything that isn't publicly available already.</p>
+  </article>
+
+</main>
+
+<footer id="foot">
+  <a href="https://x.com/aesposito0" aria-label="Andrea Esposito on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+</footer>
+
+<script src="/assets/js/menu.js" defer></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>

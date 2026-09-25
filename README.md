@@ -7,8 +7,8 @@ Personal site. Plain HTML and one stylesheet, served by GitHub Pages from this r
     index.html                 About (the home page): three paragraphs
     work/index.html            Work: Foundation, Tesla, GE Aerospace, with the two hand videos
     press/index.html           Press links and three YouTube embeds (under Work in the nav)
-    hand-analyses/index.html   SynapX, Figure and 1X breakdowns on one page, jump links on top
-    assets/img/analyses/       The eight annotated screenshots for the analyses, 1400px JPEGs
+    hand-analyses/index.html   Unitree, 1X, Figure and SynapX breakdowns on one page, jump links on top
+    assets/img/analyses/       Specifications and annotated screenshots for the analyses, JPEGs
     bookshelf/index.html       Bookshelf: Goodreads shelves (live widgets)
     favorite-poetry/index.html Poems and lyrics (under Bookshelf in the nav)
     books.html, quotes.html    Redirect stubs for the old site's /books and /quotes URLs
@@ -19,8 +19,8 @@ Personal site. Plain HTML and one stylesheet, served by GitHub Pages from this r
     assets/img/, assets/video/ Local media
 
 Every page has the same header (name top-left; About, Work, Bookshelf top-right — Work and Bookshelf
-each have a caret that opens a dropdown: the page itself first, then its sub-pages) and the same footer (an X logo linking to
-@aesposito0). The header and footer are duplicated in every file on purpose.
+each have a caret that opens a dropdown: the page itself first, then its sub-pages) and the same footer (monochrome X,
+LinkedIn and Instagram icons linking to @aesposito0, /in/aesposito0/ and @ch.brons). The header and footer are duplicated in every file on purpose.
 
 ## Adding a hand analysis
 

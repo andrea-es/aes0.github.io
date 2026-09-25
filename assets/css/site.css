@@ -151,7 +151,7 @@ h4 + p, h4 + ul { margin-top: 0; }
 .about h2 { margin-top: 0; }
 .about img { width: 100%; display: block; margin-top: 2em; }
 
-/* ---------- footer: just X ---------- */
+/* ---------- footer: social links ---------- */
 #foot { display: flex; justify-content: center; gap: 1.9rem; padding: 3rem 1.5rem 2.5rem; }
 #foot a { color: var(--muted); display: block; line-height: 0; }
 #foot a:hover { color: var(--text); }

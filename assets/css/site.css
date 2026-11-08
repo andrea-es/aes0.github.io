@@ -163,3 +163,7 @@ h4 + p, h4 + ul { margin-top: 0; }
   body { font-size: 11pt; }
   a { color: #000; text-decoration: none; }
 }
+
+/* Press: centre the X post without applying video aspect-ratio rules. */
+.press-tweet { display: flex; justify-content: center; margin: 1.75em 0; }
+.press-tweet .twitter-tweet { margin: 0; }
